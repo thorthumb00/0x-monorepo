@@ -50,7 +50,7 @@ async function checkGitTagsForNextVersionAndDeleteIfExistAsync(updatedPublicPack
 async function checkCurrentVersionMatchesLatestPublishedNPMPackageAsync(
     updatedPublicPackages: Package[],
 ): Promise<void> {
-    utils.log('Check package versions against npmjs.org...');
+    utils.log('Check package versions against npm registry...');
     const versionMismatches = [];
     for (const pkg of updatedPublicPackages) {
         const packageName = pkg.packageJson.name;
@@ -102,10 +102,10 @@ async function checkChangelogFormatAsync(updatedPublicPackages: Package[]): Prom
                 });
             } else if (semver.gt(lastEntry.version, currentVersion) && doesLastEntryHaveTimestamp) {
                 // Remove incorrectly added timestamp
-                delete changelog[0].timestamp;
-                // Save updated CHANGELOG.json
-                await changelogUtils.writeChangelogJsonFileAsync(pkg.location, changelog);
-                utils.log(`${packageName}: Removed timestamp from latest CHANGELOG.json entry.`);
+                // delete changelog[0].timestamp;
+                // // Save updated CHANGELOG.json
+                // await changelogUtils.writeChangelogJsonFileAsync(pkg.location, changelog);
+                // utils.log(`${packageName}: Removed timestamp from latest CHANGELOG.json entry.`);
             }
         }
     }
