@@ -13,7 +13,7 @@ async function prepublishChecksAsync(): Promise<void> {
     const shouldIncludePrivate = false;
     const updatedPublicPackages = await utils.getUpdatedPackagesAsync(shouldIncludePrivate);
 
-    await checkCurrentVersionMatchesLatestPublishedNPMPackageAsync(updatedPublicPackages);
+    // await checkCurrentVersionMatchesLatestPublishedNPMPackageAsync(updatedPublicPackages);
     await checkChangelogFormatAsync(updatedPublicPackages);
     await checkGitTagsForNextVersionAndDeleteIfExistAsync(updatedPublicPackages);
     await checkPublishRequiredSetupAsync();
