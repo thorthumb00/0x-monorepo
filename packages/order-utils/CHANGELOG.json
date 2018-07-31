@@ -13,6 +13,9 @@
         "changes": [
             {
                 "note": "Dependencies updated"
+            },
+            {
+                "note": "Update ecSignOrderHashAsync to return signature string with signature type byte"
             }
         ],
         "timestamp": 1532605697
